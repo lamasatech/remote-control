@@ -36,7 +36,7 @@ RUN apt-get update -y && \
 RUN mkdir /tmp/sources
 
 # Build libnice
-RUN cd /tmp/sources/ && git clone https://gitlab.freedesktop.org/libnice/libnice.git/ \
+RUN cd /tmp/sources/ && git clone https://github.com/libnice/libnice.git \
     && cd libnice \
     && git checkout tags/0.1.19 \
 #   for versions >= 0.1.18 (Using meson & ninja)

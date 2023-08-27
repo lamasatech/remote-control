@@ -1,4 +1,4 @@
-janus_image_name: "headwindmdm/janus-gateway"
+janus_image_name: "lamasatech/janus-gateway"
 janus_image_tag: "0.12.3"
 
 node_gulp_builder_image_publisher: "headwindmdm"
