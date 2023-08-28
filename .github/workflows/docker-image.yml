@@ -51,4 +51,4 @@ jobs:
         run: |
           ssh-keygen -R remote.visipoint.dev
           ssh-keyscan -t rsa remote.visipoint.dev >> /home/runner/.ssh/known_hosts
-          ssh  -o StrictHostKeyChecking=no root@remote.visipoint.dev "cd remote-control && docker-compose pull grid && docker-compose up -d"
+          ssh  -o StrictHostKeyChecking=no root@remote.visipoint.dev "cd remote-control && docker-compose pull janus && docker-compose up -d"
