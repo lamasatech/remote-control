@@ -233,6 +233,7 @@ Janus.init = function(options) {
 	options = options || {};
 	options.callback = (typeof options.callback == "function") ? options.callback : Janus.noop;
 	if(Janus.initDone) {
+		console.log('line 236 init');
 		// Already initialized
 		options.callback();
 	} else {
@@ -247,6 +248,7 @@ Janus.init = function(options) {
 		Janus.warn = Janus.noop;
 		Janus.error = Janus.noop;
 		if(options.debug === true || options.debug === "all") {
+			console.log('line 251');
 			// Enable all debugging levels
 			Janus.trace = console.trace.bind(console);
 			Janus.debug = console.debug.bind(console);
@@ -255,6 +257,7 @@ Janus.init = function(options) {
 			Janus.warn = console.warn.bind(console);
 			Janus.error = console.error.bind(console);
 		} else if(Array.isArray(options.debug)) {
+			console.log('line 260');
 			for(var d of options.debug) {
 				switch(d) {
 					case "trace":
@@ -293,6 +296,7 @@ Janus.init = function(options) {
 
 		// Helper method to enumerate devices
 		Janus.listDevices = function(callback, config) {
+			console.log('line 299 listDevices');
 			callback = (typeof callback == "function") ? callback : Janus.noop;
 			if (config == null) config = { audio: true, video: true };
 			if(Janus.isGetUserMediaAvailable()) {
@@ -316,6 +320,7 @@ Janus.init = function(options) {
 		};
 		// Helper methods to attach/reattach a stream to a video element (previously part of adapter.js)
 		Janus.attachMediaStream = function(element, stream) {
+			console.log('line 323 attachMediaStream');
 			try {
 				element.srcObject = stream;
 			} catch (e) {
@@ -327,6 +332,7 @@ Janus.init = function(options) {
 			}
 		};
 		Janus.reattachMediaStream = function(to, from) {
+			console.log('line 335 reattachMediaStream');
 			try {
 				to.srcObject = from.srcObject;
 			} catch (e) {
