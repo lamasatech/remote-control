@@ -51,6 +51,7 @@ var defaultExtension = {
 	extensionId: 'hapfgfdkleiggjjpfpenajgdnfckjpaj',
 	isInstalled: function() { return document.querySelector('#janus-extension-installed') !== null; },
 	getScreen: function (callback) {
+		console.log('line 54 getScreen');
 		var pending = window.setTimeout(function () {
 			var error = new Error('NavigatorUserMediaError');
 			error.name = 'The required Chrome extension is not installed: click <a href="#">here</a> to install it. (NOTE: this will need you to refresh the page)';
@@ -60,6 +61,7 @@ var defaultExtension = {
 		window.postMessage({ type: 'janusGetScreen', id: pending }, '*');
 	},
 	init: function () {
+		console.log('line 64 init getScreen');
 		var cache = {};
 		this.cache = cache;
 		// Wait for events from the Chrome Extension
@@ -72,6 +74,7 @@ var defaultExtension = {
 
 				if (event.data.sourceId === '') {
 					// user canceled
+					console.log('line 77 cancelled');
 					var error = new Error('NavigatorUserMediaError');
 					error.name = 'You cancelled the request for permission, giving up...';
 					callback(error);
