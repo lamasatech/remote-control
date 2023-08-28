@@ -97,6 +97,7 @@ Janus.useDefaultDependencies = function (deps) {
 		isArray: function(arr) { return Array.isArray(arr); },
 		webRTCAdapter: (deps && deps.adapter) || adapter,
 		httpAPICall: function(url, options) {
+			console.log('line 100 inside newWebSocket');
 			var fetchOptions = {
 				method: options.verb,
 				headers: {
@@ -105,13 +106,16 @@ Janus.useDefaultDependencies = function (deps) {
 				cache: 'no-cache'
 			};
 			if(options.verb === "POST") {
+				console.log('line 109 POST');
 				fetchOptions.headers['Content-Type'] = 'application/json';
 			}
 			if(options.withCredentials !== undefined) {
+				console.log('line 113 not undefined');
 				fetchOptions.credentials = options.withCredentials === true ? 'include' : (options.withCredentials ? options.withCredentials : 'omit');
 			}
 			if(options.body) {
 				fetchOptions.body = JSON.stringify(options.body);
+				console.log('line 18 body: ' + fetchOptions);
 			}
 
 			var fetching = f(url, fetchOptions).catch(function(error) {
@@ -135,6 +139,7 @@ Janus.useDefaultDependencies = function (deps) {
 
 			fetching.then(function(response) {
 				if(response.ok) {
+					console.log('line 142 response ok');
 					if(typeof(options.success) === typeof(Janus.noop)) {
 						return response.json().then(function(parsed) {
 							options.success(parsed);
@@ -144,10 +149,12 @@ Janus.useDefaultDependencies = function (deps) {
 					}
 				}
 				else {
+					console.log('line 152 response NOT ok');
 					return p.reject({message: 'API call failed', response: response});
 				}
 			}).catch(function(error) {
 				if(typeof(options.error) === typeof(Janus.noop)) {
+					console.log('error: ' + error);
 					options.error(error.message || '<< internal error >>', error);
 				}
 			});
@@ -412,6 +419,7 @@ Janus.init = function(options) {
 
 // Helper method to check whether WebRTC is supported by this browser
 Janus.isWebrtcSupported = function() {
+	console.log('*** isWebrtcSupported: NO in janus.js file line 415')
 	return !!window.RTCPeerConnection;
 };
 // Helper method to check whether devices can be accessed by this browser (e.g., not possible via plain HTTP)
