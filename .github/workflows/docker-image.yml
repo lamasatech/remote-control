@@ -50,5 +50,5 @@ jobs:
       - name: Deploy to server
         run: |
           ssh-keygen -R remote.visipoint.dev
-          ssh-keyscan -t rsa remote.visipoint.dev >> /home/runner/.ssh/known_hosts
-          ssh root@remote.visipoint.dev "docker-compose pull grid && docker-compose up -d"
+          # ssh-keyscan -t rsa remote.visipoint.dev >> /home/runner/.ssh/known_hosts
+          ssh  -o StrictHostKeyChecking=no root@remote.visipoint.dev "docker-compose pull grid && docker-compose up -d"
