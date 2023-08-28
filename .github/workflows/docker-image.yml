@@ -46,7 +46,7 @@ jobs:
       - name: setup ssh
         uses: webfactory/ssh-agent@v0.8.0
         with:
-            ssh-private-key: ${{ secrets.LA_KEY }}
+            ssh-private-key: ${{ secrets.SSH_KEY }}
       - name: Deploy to server
         run: |
           ssh-keygen -R remote.visipoint.dev
