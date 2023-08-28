@@ -54,10 +54,13 @@ function VideoStats(bitrateElem, resolutionElem, remoteVideoElem) {
         (function (self) {
             self.interval = setInterval(function () {
                 var bitrate = self.streaming.getBitrate();
+                console.log('bitrate: ' + bitrate);
                 self.bitrateElem.text(bitrate);
                 // Check if the resolution changed too
                 var width = self.remoteVideoElem.get(0).videoWidth;
                 var height = self.remoteVideoElem.get(0).videoHeight;
+                console.log('width: ' + width);
+                console.log('height: ' + height);
                 if (width > 0 && height > 0)
                     self.resolutionElem.text(width + 'x' + height);
                 self.showElems();
