@@ -71,23 +71,8 @@
             <div class="col-md-auto justify-content-center text-center p-0" id="windowStream">
                 <div id="videoLoader" class="loader loader-bouncing"></div>
                 <div id="deviceGestures"></div>
-                <!-- <video class="rounded centered border" id="streamingRemoteVideo" autoplay playsinline
-                    width="540" height="1064"></video> -->
-                    <video id="streamingRemoteVideo" autoplay width="540" height="1064"></video>
-
-<script>
-    const video = document.getElementById('video');
-
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function(stream) {
-                video.srcObject = stream;
-            })
-            .catch(function(err) {
-                console.log("An error occurred: " + err);
-            });
-    }
-</script>
+                <video class="rounded centered border" id="streamingRemoteVideo" autoplay playsinline
+                    width="540" height="1064"></video>
             </div>
         </div>
         <div class="row justify-content-center">
