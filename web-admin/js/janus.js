@@ -901,8 +901,10 @@ function Janus(gatewayCallbacks) {
 				'open': function() {
 					// We need to be notified about the success
 					transactions[transaction] = function(json) {
+						console.log('json: ' , json);
 						Janus.debug(json);
 						if (json["janus"] !== "success") {
+							console.log("Ooops: " + json["error"].code + " " + json["error"].reason);
 							Janus.error("Ooops: " + json["error"].code + " " + json["error"].reason);	// FIXME
 							callbacks.error(json["error"].reason);
 							return;
@@ -918,6 +920,7 @@ function Janus(gatewayCallbacks) {
 						Janus.sessions[sessionId] = that;
 						callbacks.success();
 					};
+					console.log('request:' , request);
 					ws.send(JSON.stringify(request));
 				},
 
