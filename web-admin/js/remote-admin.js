@@ -130,7 +130,7 @@ $(document).ready(function () {
 
                         ondata: function (rawData) {
                             console.debug("textroom: got data from DataChannel", rawData);
-
+                            console.log("textroom: got data from DataChannel", rawData);
                             var data = JSON.parse(rawData);
 
                             // process transaction if we have response on it
