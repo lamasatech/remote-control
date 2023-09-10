@@ -83,9 +83,9 @@ RUN cd /tmp/sources/ && git clone https://boringssl.googlesource.com/boringssl \
     && cp build/ssl/libssl.a /opt/boringssl/lib/ && cp build/crypto/libcrypto.a /opt/boringssl/lib/
 
 # Build Janus Gateway
-RUN cd /tmp/sources/ && git clone https://github.com/meetecho/janus-gateway.git \
+RUN cd /tmp/sources/ && git clone https://github.com/lamasatech/janus-gateway.git \
     && cd janus-gateway \
-    && git checkout v0.12.3 \
+    && git checkout yasser \
     && sh autogen.sh \
     && ./configure \
       # General
