@@ -7,6 +7,7 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         libmicrohttpd-dev \
 		libjansson-dev \
+  		libmysqlclient-dev \
 		libssl-dev \
 		libglib2.0-dev \
 		libopus-dev \
