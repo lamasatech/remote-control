@@ -48,7 +48,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
-                    <button type="submit" class="btn btn-primary btn-start">Start</button>
+                    <button type="submit" id="login-submit-btn" class="btn btn-primary btn-start">Start</button>
                 </div>
             </div>
         </div>
@@ -138,12 +138,21 @@
     <script type="text/javascript" src="dist/js/app.min.js"></script>
     <script type="text/javascript" src="dist/js/settings.js"></script>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const macAddress = urlParams.get('mac');
 
-        console.log({urlParams})
-        console.log({macAddress})
-        //
-    </script>
+        //Get session data (room id , password)
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomId = urlParams.get('roomId');
+        const roomPassword = urlParams.get('password');
+
+        //Auto set session id & password values
+        document.getElementById("input-session-id").value = roomId
+        document.getElementById("input-pin").value = roomPassword
+
+        //Auto submit form
+        document.getElementById('login-form').submit()
+
+        const loginBtn = document.getElementById("login-submit-btn")
+        console.log(loginBtn)
+</script>
 </body>
 </html>
