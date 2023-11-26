@@ -137,5 +137,13 @@
     <script type="text/javascript" src="dist/js/deps.min.js"></script>
     <script type="text/javascript" src="dist/js/app.min.js"></script>
     <script type="text/javascript" src="dist/js/settings.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const macAddress = urlParams.get('mac');
+
+        console.log({urlParams})
+        console.log({macAddress})
+        //
+    </script>
 </body>
 </html>
