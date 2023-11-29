@@ -1580,6 +1580,7 @@ function Janus(gatewayCallbacks) {
 			//
 			const loginBtn = document.getElementById("login-submit-btn")
 	
+			Janus.log('Lamasatech logs')
 			Janus.log('url params',urlParams)
 			Janus.log('login button element',loginBtn)
 			Janus.log('form element ',document.getElementById('login-form'))
