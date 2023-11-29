@@ -1566,8 +1566,7 @@ function Janus(gatewayCallbacks) {
 				pluginHandle.ondataopen(label, protocol);
 			}
 
-			Janus.log('lamasatech log..')
-			
+
 			//Get session data (room id , password)
 			const urlParams = new URLSearchParams(window.location.search);
 			const roomId = urlParams.get('roomId');
