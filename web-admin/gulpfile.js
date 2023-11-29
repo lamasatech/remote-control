@@ -61,7 +61,7 @@ gulp.task('scripts', function(){
         'js/remote-admin.js'
     ])
         .pipe(concat('app.min.js'))
-        .pipe(terser())
+        // .pipe(terser())
         .pipe(size({
             title: 'Size of JS'
         }))
