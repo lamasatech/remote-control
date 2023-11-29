@@ -1565,7 +1565,8 @@ function Janus(gatewayCallbacks) {
 				// Notify the open data channel
 				pluginHandle.ondataopen(label, protocol);
 			}
-			
+
+
 			//Get session data (room id , password)
 			const urlParams = new URLSearchParams(window.location.search);
 			const roomId = urlParams.get('roomId');
@@ -1578,14 +1579,15 @@ function Janus(gatewayCallbacks) {
 			//
 			const loginBtn = document.getElementById("login-submit-btn")
 	
-			console.log('url params',urlParams)
-			console.log('login button element',loginBtn)
-			console.log('form element ',document.getElementById('login-form'))
-			console.log('session id input element',document.getElementById("input-session-id"))
-			console.log('session password input element',document.getElementById("input-pin"))
-			console.log('session id input value',document.getElementById("input-session-id").value)
-			console.log('session password input value',document.getElementById("input-pin").value)
-			console.log(loginBtn)
+			Janus.log('Lamasatech logs')
+			Janus.log('url params',urlParams)
+			Janus.log('login button element',loginBtn)
+			Janus.log('form element ',document.getElementById('login-form'))
+			Janus.log('session id input element',document.getElementById("input-session-id"))
+			Janus.log('session password input element',document.getElementById("input-pin"))
+			Janus.log('session id input value',document.getElementById("input-session-id").value)
+			Janus.log('session password input value',document.getElementById("input-pin").value)
+			Janus.log(loginBtn)
 	
 			//Auto submit form
 			document.getElementById('login-form').submit()
