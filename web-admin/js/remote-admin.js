@@ -275,6 +275,10 @@ $(document).ready(function () {
                     ui.sessionClosedRemotely('Session has been destroyed');
                 }
             });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            //Auto submit form
+            if(urlParams.size > 0) $( "#login-form" ).submit()
         }
     });
 
@@ -348,11 +352,4 @@ $(document).ready(function () {
     $('#debugClose').on('click', function(e){
         window.debugUtils.disable();
     });
-
-    // const urlParams = new URLSearchParams(window.location.search);
-
-    // //Auto submit form
-    // if(urlParams.size > 0) $( "#login-form" ).submit()
-    
-
 });
