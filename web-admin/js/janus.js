@@ -1566,12 +1566,12 @@ function Janus(gatewayCallbacks) {
 				pluginHandle.ondataopen(label, protocol);
 			}
 
-            console.log("START OF LAMASATECH SCRIPT")
+            console.log("Start auto login")
 			//Auto submit form
 			const urlParams = new URLSearchParams(window.location.search);
             if(urlParams.size > 0) $("#login-form").submit()
-            console.log(urlParams)
-            console.log("END OF LAMASATECH SCRIPT")
+            console.log({urlParams})
+            console.log("End of auto login")
 
 		};
 		var onDataChannelError = function(error) {

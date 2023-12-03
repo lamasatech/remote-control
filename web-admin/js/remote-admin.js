@@ -280,7 +280,6 @@ $(document).ready(function () {
 
     // Session login
     $('#login-form').on('submit', function (e) {
-        e.preventDefault();
         
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -303,6 +302,7 @@ $(document).ready(function () {
         ui.connStart();
         remoteVideo.startStreamMountpoint(sessionId, pin);
         remoteChat.startRoom(sessionId, pin);
+        e.preventDefault();
     });
 
     // Back button
