@@ -280,25 +280,27 @@ $(document).ready(function () {
 
     // Session login
     $('#login-form').on('submit', function (e) {
-        //Get session data (room id , password)
         const urlParams = new URLSearchParams(window.location.search);
-        const roomId = urlParams.get('roomId');
-        const roomPassword = urlParams.get('password');
 
-        console.info("params",urlParams)
-        console.info("roomId", roomId);
-        console.info("roomPassword", roomPassword);
+        if(urlParams.size > 0 ){
+            //Auto set session id & password values
+            const roomId = urlParams.get('roomId');
+            const roomPassword = urlParams.get('password');
+    
+            $("#input-session-id").val(roomId);
+            $("#input-pin").val(roomPassword);
+        }
+        
+        const sessionId = $('#input-session-id').val();
+        const pin = $('#input-pin').val();
 
-        //Auto set session id & password values
-        // $("#input-session-id").val(roomId);
-        // $("#input-pin").val(roomPassword);
-
-        // var sessionId = $('#input-session-id').val();
-        // var pin = $('#input-pin').val();
+        //Logs
+        console.info({sessionId})
+        console.info({pin})
 
         ui.connStart();
-        remoteVideo.startStreamMountpoint(roomId, roomPassword);
-        remoteChat.startRoom(roomId, roomPassword);
+        remoteVideo.startStreamMountpoint(sessionId, pin);
+        remoteChat.startRoom(sessionId, pin);
         e.preventDefault();
     });
 
