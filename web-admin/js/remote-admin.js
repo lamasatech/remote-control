@@ -278,12 +278,14 @@ $(document).ready(function () {
 
             const urlParams = new URLSearchParams(window.location.search);
             //Auto submit form
-            if(urlParams.size > 0) $( "#login-form" ).submit()
+            if(urlParams.size > 0) $("#login-form").submit()
         }
     });
 
     // Session login
     $('#login-form').on('submit', function (e) {
+        e.preventDefault();
+        
         const urlParams = new URLSearchParams(window.location.search);
 
         if(urlParams.size > 0 ){
@@ -305,7 +307,6 @@ $(document).ready(function () {
         ui.connStart();
         remoteVideo.startStreamMountpoint(sessionId, pin);
         remoteChat.startRoom(sessionId, pin);
-        e.preventDefault();
     });
 
     // Back button
