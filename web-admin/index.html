@@ -137,16 +137,5 @@
     <script type="text/javascript" src="dist/js/deps.min.js"></script>
     <script type="text/javascript" src="dist/js/app.min.js"></script>
     <script type="text/javascript" src="dist/js/settings.js"></script>
-    <script>
-        console.log('html script')
-        window.addEventListener("load", function(){
-            console.log("dom loaded")
-            
-            const urlParams = new URLSearchParams(window.location.search);
-
-            //Auto submit form
-            if(urlParams.size > 0) document.getElementById("login-form").submit();
-        });
-    </script>
 </body>
 </html>
