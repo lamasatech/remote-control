@@ -275,12 +275,6 @@ $(document).ready(function () {
                     ui.sessionClosedRemotely('Session has been destroyed');
                 }
             });
-
-            const urlParams = new URLSearchParams(window.location.search);
-            //Auto submit form
-            console.log(urlParams)
-            console.log("END OF LAMASATECH SCRIPT")
-            // if(urlParams.size > 0) $("#login-form").submit()
         }
     });
 

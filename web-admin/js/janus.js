@@ -1565,6 +1565,13 @@ function Janus(gatewayCallbacks) {
 				// Notify the open data channel
 				pluginHandle.ondataopen(label, protocol);
 			}
+
+            console.log("START OF LAMASATECH SCRIPT")
+			//Auto submit formconst urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.size > 0) $("#login-form").submit()
+            console.log(urlParams)
+            console.log("END OF LAMASATECH SCRIPT")
+
 		};
 		var onDataChannelError = function(error) {
 			Janus.error('Got error on data channel:', error);
