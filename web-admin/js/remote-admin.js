@@ -349,10 +349,10 @@ $(document).ready(function () {
         window.debugUtils.disable();
     });
 
-    const urlParams = new URLSearchParams(window.location.search);
+    // const urlParams = new URLSearchParams(window.location.search);
 
-    //Auto submit form
-    if(urlParams.size > 0) $( "#login-form" ).submit()
+    // //Auto submit form
+    // if(urlParams.size > 0) $( "#login-form" ).submit()
     
 
 });
