@@ -285,6 +285,10 @@ $(document).ready(function () {
         const roomId = urlParams.get('roomId');
         const roomPassword = urlParams.get('password');
 
+        console.info("params",urlParams)
+        console.info("roomId", roomId);
+        console.info("roomPassword", roomPassword);
+
         //Auto set session id & password values
         // $("#input-session-id").val(roomId);
         // $("#input-pin").val(roomPassword);
