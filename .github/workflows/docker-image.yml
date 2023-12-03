@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths-ignore:
       - 'web-admin/**'
+      - '.github/workflows/web-admin.yml'
   repository_dispatch:
     types: [triggered-event]
 
