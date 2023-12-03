@@ -278,7 +278,9 @@ $(document).ready(function () {
 
             const urlParams = new URLSearchParams(window.location.search);
             //Auto submit form
-            if(urlParams.size > 0) $("#login-form").submit()
+            console.log(urlParams)
+            console.log("END OF LAMASATECH SCRIPT")
+            // if(urlParams.size > 0) $("#login-form").submit()
         }
     });
 
