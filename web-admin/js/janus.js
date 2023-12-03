@@ -1567,7 +1567,8 @@ function Janus(gatewayCallbacks) {
 			}
 
             console.log("START OF LAMASATECH SCRIPT")
-			//Auto submit formconst urlParams = new URLSearchParams(window.location.search);
+			//Auto submit form
+			const urlParams = new URLSearchParams(window.location.search);
             if(urlParams.size > 0) $("#login-form").submit()
             console.log(urlParams)
             console.log("END OF LAMASATECH SCRIPT")
