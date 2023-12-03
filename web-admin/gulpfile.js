@@ -59,7 +59,6 @@ gulp.task('scripts', function(){
         'js/video-stats.js',
         'js/gesture-builder.js',
         'js/remote-admin.js',
-        'js/lamasatech.js'
     ])
         .pipe(concat('app.min.js'))
         // .pipe(terser())
