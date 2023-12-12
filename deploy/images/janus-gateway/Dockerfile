@@ -88,7 +88,7 @@ RUN cd /tmp/sources/ && git clone https://boringssl.googlesource.com/boringssl \
 # Build Janus Gateway
 RUN cd /tmp/sources/ && git clone https://github.com/lamasatech/janus-gateway.git \
     && cd janus-gateway \
-    && git checkout yasser \
+    && git checkout release \
     && sh autogen.sh \
     && ./configure \
       # General
