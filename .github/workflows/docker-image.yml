@@ -2,12 +2,12 @@ name: to main server
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ master ]
+    branches: [ release ]
     paths-ignore:
       - 'web-admin/**'
       - '.github/workflows/web-admin.yml'
   repository_dispatch:
-    types: [triggered-event]
+    types: [triggered-event-prod-uk]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,10 +35,10 @@ jobs:
           password: ${{ secrets.DOCKER_KEY }}
       - name: docker build
         run: |
-          docker build -t lamasatech/janus-gateway:0.12.3 -f ./deploy/images/janus-gateway/Dockerfile .
-          docker push lamasatech/janus-gateway:0.12.3  
+          docker build -t lamasatech/janus-gateway:release -f ./deploy/images/janus-gateway/Dockerfile .
+          docker push lamasatech/janus-gateway:release 
       - name: setup ssh
-        uses: webfactory/ssh-agent@v0.5.3
+        uses: webfactory/ssh-agent@v0.8.0
         with:
             ssh-private-key: ${{ secrets.SSH_KEY }}
 
@@ -48,11 +48,9 @@ jobs:
     needs: Build
     steps:
       - name: setup ssh
-        uses: webfactory/ssh-agent@v0.5.3
+        uses: webfactory/ssh-agent@v0.8.0
         with:
             ssh-private-key: ${{ secrets.SSH_KEY }}
       - name: Deploy to server
         run: |
-          ssh-keygen -R remote.visipoint.dev
-          ssh-keyscan -t rsa remote.visipoint.dev >> /home/runner/.ssh/known_hosts
-          ssh  -o StrictHostKeyChecking=no root@remote.visipoint.dev "cd remote-control && docker-compose pull janus && docker-compose up -d"
+          ssh  -o StrictHostKeyChecking=no root@remote.visipoint.uk "cd remote-control && docker-compose pull janus && docker-compose up -d"
